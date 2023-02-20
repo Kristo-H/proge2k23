@@ -1,0 +1,8 @@
+#mängu ideed: 1) 2d parkuur mäng, 2) keemia lahuste mäng
+#parkuur mäng
+#funktsioonid: jooksmine, hüppamine, kükitamine, võlujoogid
+#objektid: tegelane(elud, kiirus, attack), vastased(attack, damage, elud), mündid, takistused(blockid, jää)
+
+#keemia lahuste mäng
+#funktsioonid: lahuste kokku segamine, efektid(lahustumine, plahvatus, gaasi eraldumine),
+#objektid: erinevate ainete kolvid,
