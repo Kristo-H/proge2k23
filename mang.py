@@ -8,13 +8,9 @@ clock = pg.time.Clock()
 screen_width, screen_height = 600, 600
 screen = pg.display.set_mode((screen_width, screen_height))
 
-#ruut liigub
-moving_rect = pg.Rect(350, 350, 100, 100)
-x_speed, y_speed = 5, 4
-
-#teine ruut liigub
-#other_rect = pg.Rect(300, 400, 200, 100)
-#other_speed = 2
+#ruut
+"""moving_rect = pg.Rect(350, 350, 100, 100)
+x_speed, y_speed = 5, 4"""
 
 #palli koordinaadid
 x_pos = 0
@@ -38,12 +34,6 @@ yTegelane = 0
 jumping = False
 
 #pildid
-standing_surface = pg.transform.scale(pg.image.load("basketball3.png"), (96, 128))
-jumping_surface = pg.transform.scale(pg.image.load("basketball4.png"), (96, 128))
-bg2 = pg.transform.scale(pg.image.load("images.png"), (600, 600))
-hoop = pg.transform.scale(pg.image.load("hoop.png"), (200, 200))
-
-lind = pg.image.load('bird1.png')
 ground_img = pg.image.load('ground.png')
 taust = pg.image.load('bglong.png')
 
@@ -110,8 +100,6 @@ scroll_speed = 4
 #tegelase kaamera
 tegelane_scroll = 0
 
-#korvpall
-#ball_rect = standing_surface.get_rect(center=(x_pos, y_pos))
 fps = 144
 jooksja = jooksja1.get_rect(center=(100, 400))
 
@@ -156,20 +144,11 @@ while run:
             flying = True
 
         pg.display.update()
-    #screen.blit(jookseb, (tegelane_scroll + tegelane_x, tegelane_y))
-    #screen.blit(jooksja1, (100, 400))
-    #screen.blit(update_fps(), (50, 50))
-    #ground_scroll -= scroll_speed
-    #tegelane_scroll -= scroll_speed
 
-    #clock.tick(60)
-    #screen.fill((0, 0, 0))
-    #color = (255, 0, 0)
     x_pos += xKoordinaat
     y_pos += yKoordinaat
     tegelane_x += xTegelane
     tegelane_y += yTegelane
-    #rect = pg.draw.rect(screen, color, (x_pos, y_pos, 50, 50))
 
 
     if abs(ground_scroll) > 35:
@@ -204,14 +183,12 @@ while run:
                 yKoordinaat = 0
                 yTegelane = 0
 
-    #screen.blit(standing_surface, ball_rect)
     keys = pg.key.get_pressed()
     if not keys[pg.K_SPACE] and not keys[pg.K_g]:
         pass
     else:
         jumping = True
-    #screen.blit(bg, (0, 0))
-    #screen.blit(hoop, (300, 300))
+        
     if jumping:
         y_pos -= y_vel
         tegelane_y -= tegelane_y_vel
@@ -221,13 +198,9 @@ while run:
             jumping = False
             y_vel = jump_height
             tegelane_y_vel = tegelane_jump_height
-        #ball_rect = standing_surface.get_rect(center=(x_pos, y_pos))
-        #screen.blit(jumping_surface, ball_rect)
         jooksja = jooksja3.get_rect(center=(tegelane_x, tegelane_y))
         screen.blit(jooksja2, jooksja)
     else:
-        #ball_rect = standing_surface.get_rect(center=(x_pos, y_pos))
-        #screen.blit(standing_surface, ball_rect)
         jooksja = jooksja3.get_rect(center=(tegelane_x, tegelane_y))
         screen.blit(jooksja3, jooksja)
 
